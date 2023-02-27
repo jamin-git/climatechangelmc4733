@@ -12,10 +12,69 @@
 </head>
 
 <body>
-    <a-scene>
+
+
+  <script>
+    AFRAME.registerComponent('unitedstates', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          window.location.href = "us.html";
+        });
+      }
+    });
+
+    AFRAME.registerComponent('asia', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          window.location.href = "asia.html";
+        });
+      }
+    });
+
+    AFRAME.registerComponent('australia', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          window.location.href = "australia.html";
+        });
+      }
+    });
+
+    AFRAME.registerComponent('polar', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          window.location.href = "polar.html";
+        });
+      }
+    });
+  </script>
+
+
+
+    <a-scene cursor="rayOrigin:mouse">
+        <!-- Asset management system. -->
+      <a-assets>
+        <img id="earthDay" src="/resources/textures/2k_earth_daymap.jpg">
+      </a-assets>
+
+    </a-sphere>
+      <a-entity text="value: Explore Climate Change; align: center" scale="3 3 1" rotation="" position="-2 0.3 2" side="double"></a-entity>
+
       <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 30000">
         
         <a-sphere
+          unitedstates
           id="unitedstates"
           position="0.1964 0.12678 2.02888"
           radius=".05"
@@ -23,6 +82,7 @@
         </a-sphere>
 
         <a-sphere
+          asia
           id="asia"
           position="-0.45436 1.60241 -1.14687"
           radius=".05"
@@ -30,6 +90,7 @@
         </a-sphere>
 
         <a-sphere
+          australia
           id="australia"
           position="-0.89228 -0.12368 -1.85201"
           radius=".05"
@@ -37,13 +98,14 @@
         </a-sphere>
 
         <a-sphere
+          polar
           id="polar"
           position="-0.2008 -1.65709 -1.23355"
           radius=".05"
           color="#ff3333">
         </a-sphere>
 
-        <a-sphere id="earth" src="/resources/textures/2k_earth_daymap.jpg"  
+        <a-sphere id="earth" src="#earthDay"  
             position="0 0 0" 
             radius="2"
             rotation="30 0 0">
@@ -54,7 +116,7 @@
 
       <a-entity camera 
       look-controls 
-      orbit-controls="target: 0 0 0; minDistance: 5; maxDistance: 90; initialPosition: 0 0 5;">
+      orbit-controls="target: 0 0 0; minDistance: 5; maxDistance: 90; initialPosition: -1.1 0 3.1;">
     </a-entity>
 
     </a-scene>
