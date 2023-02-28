@@ -48,13 +48,13 @@
       }
     });
 
-    AFRAME.registerComponent('polar', {
+    AFRAME.registerComponent('atlantic', {
       schema: {
         default: ''
       },
       init: function () {
         this.el.addEventListener('click', function () {
-          window.location.href = "polar.html";
+          window.location.href = "atlantic.html";
         });
       }
     });
@@ -71,12 +71,11 @@
     </a-sphere>
       <a-entity text="value: Explore Climate Change; align: center" scale="3 3 1" rotation="" position="-2 0.3 2" side="double"></a-entity>
 
-      <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 30000">
-        
+      <a-entity animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 200000">
         <a-sphere
           unitedstates
           id="unitedstates"
-          position="0.1964 0.12678 2.02888"
+          position="-0.70125 0.44582 1.9076"
           radius=".05"
           color="#ff3333">
         </a-sphere>
@@ -98,9 +97,9 @@
         </a-sphere>
 
         <a-sphere
-          polar
-          id="polar"
-          position="-0.2008 -1.65709 -1.23355"
+          atlantic
+          id="atlantic"
+          position="0.24124 -0.10845 2.01127"
           radius=".05"
           color="#ff3333">
         </a-sphere>
