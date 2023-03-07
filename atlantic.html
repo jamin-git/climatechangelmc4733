@@ -20,7 +20,7 @@
 <body>
 
   <script>
-    AFRAME.registerComponent('testbox', {
+    AFRAME.registerComponent('testboxindicator', {
       schema: {
         default: ''
       },
@@ -31,18 +31,38 @@
       }
     });
 
+    AFRAME.registerComponent('testboxindicator2', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          var el = document.querySelector("#sampletext");
+          el.setAttribute("visible", true);
+        });
+      }
+    });
+
   </script>
 
   <div id="content">
-    <h1>Sample Object</h1>
+    <h1>Modal Information Test</h1>
     <p>Here is the information about what this object is and how it is effected by climate change over time!</p>
   </div>
 
 
     <a-scene cursor="rayOrigin:mouse">
 
-      <a-box testbox position="0 1 -5" rotation="" color="#4CC3D9" geometry="" scale="2 2 2"></a-box>
-      <a-box position="0 -1.1 -3" rotation="" color="#4CC3D9" material="color: #271a11" geometry="" scale="50 1 50"></a-box>
+      <!-- Interaction 2 -->
+      <a-text id="sampletext" value="Here is some info using an A-Frame component" scale="2 2 1" position="-9 3 -5" visible="false"></a-text>
+      <a-box testboxindicator2 position="-5 2 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2" animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 10000"></a-box>
+      <a-box position="-5 1 -5" rotation="" color="#4CC3D9" geometry="" scale="1 1 1"></a-box>
+
+      <!-- Interaction 1 -->
+      <a-box testboxindicator position="4 2 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2" animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 10000"></a-box>
+      <a-box position="4 1 -5" rotation="" color="#4CC3D9" geometry="" scale="1 1 1"></a-box>
+
+      <a-box position="0 -1.1 -3" material="color: #271a11" geometry="" scale="50 1 50"></a-box>
       <a-ocean color="#0C374F" width="150" depth="150" density="15" speed="0.1" position="0 -1 -25"></a-ocean>
       <a-sky color="#176EAC"></a-sky>
 
