@@ -43,6 +43,79 @@
       }
     });
 
+    AFRAME.registerComponent('animationstate1', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          var el = document.querySelector("#player");
+          el.setAttribute("animation-mixer", {
+            clip: 'Walk',
+            // loop: 'once',
+            timeScale: 0.1,
+            startAt: 100,
+          });
+          
+        });
+      }
+    });
+    AFRAME.registerComponent('animationstate1-1', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          var el = document.querySelector("#player");
+          el.setAttribute("animation-mixer", {
+            clip: 'Walk',
+            // loop: 'once',
+            timeScale: 0.0,
+            startAt: 100,
+          });
+          
+        });
+      }
+    });
+
+    AFRAME.registerComponent('animationstate2', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          console.log("Here!");
+          var el = document.querySelector("#player");
+          el.setAttribute("animation-mixer", {
+            clip: 'High_Kick',
+            // loop: 'once',
+            timeScale: 0.1,
+            startAt: 100,
+          });
+
+
+        });
+      }
+    });
+
+    AFRAME.registerComponent('animationstate2-2', {
+      schema: {
+        default: ''
+      },
+      init: function () {
+        this.el.addEventListener('click', function () {
+          var el = document.querySelector("#player");
+          let mixer = el.mixer;
+          el.setAttribute("animation-mixer", {
+            clip: 'High_Kick',
+            // loop: 'once',
+            timeScale: 0.0,
+            startAt: 300,
+          });
+        });
+      }
+    });
+
   </script>
 
   <div id="content">
@@ -52,6 +125,19 @@
 
 
     <a-scene cursor="rayOrigin:mouse">
+
+      <a-assets>
+        <a-asset-item id="person" src="assets/third_person_animations/scene.gltf"></a-asset-item>
+        <a-asset-item id="trex" src="assets/TRex.glb"></a-asset-item>
+      </a-assets>
+
+      <a-entity id="trex" position="1 0 -5" gltf-model="#trex" scale="0.15 0.15 0.15" animation-mixer="clip: Armature|TRex_Death; timeScale: .1; startAt: 10000;"></a-entity>
+
+      <!-- <a-entity id="player" position="0 0 -5" gltf-model="#person" animation-mixer="clip: High_Kick; timeScale: 0.1; startAt: 1000"></a-entity> -->
+      <a-box animationstate1 position="-1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
+      <a-box animationstate2 position="1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
+      <a-box animationstate1-1 position="-2 1 -5" rotation="" color="#fFF2" geometry="" scale="0.2 0.3 0.2"></a-box>
+      <a-box animationstate2-2 position="2 1 -5" rotation="" color="#fFF2" geometry="" scale="0.2 0.3 0.2"></a-box>
 
       <!-- Interaction 2 -->
       <a-text id="sampletext" value="Here is some info using an A-Frame component" scale="2 2 1" position="-9 3 -5" visible="false"></a-text>
