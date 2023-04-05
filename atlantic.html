@@ -4,7 +4,12 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 
     <!-- Adding the A-Frame Extras Library -->
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@67d1130/dist/aframe-extras.js"></script> -->
+
+    <!-- Using this Version of A-Frame-Extras - Cloned from their repo
+    For some reason, the startAt functionality did not work with with most recent CDN -->
+    <script src="/a-frame-extras/aframe-extras-master/examples/bundle.js"></script>
+
 
     <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script>
     <script src="https://unpkg.com/aframe-supercraft-loader@1.1.3/dist/aframe-supercraft-loader.js"></script>
@@ -15,123 +20,30 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
 />
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <script>
-    AFRAME.registerComponent('testboxindicator', {
-      schema: {
-        default: ''
-      },
-      init: function () {
-        this.el.addEventListener('click', function () {
-          Fancybox.show([{ src: "#content", type: "clone" }]);
-        });
-      }
-    });
+  <div class="HUD">
 
-    AFRAME.registerComponent('testboxindicator2', {
-      schema: {
-        default: ''
-      },
-      init: function () {
-        this.el.addEventListener('click', function () {
-          var el = document.querySelector("#sampletext");
-          el.setAttribute("visible", true);
-        });
-      }
-    });
+    <div class="slidecontainer">
+      <input type="range" min="0" max="4100" value="0" class="slider" id="myRange">
+    </div>
 
-    AFRAME.registerComponent('animationstate1', {
-      schema: {
-        default: ''
-      },
-      init: function () {
-        this.el.addEventListener('click', function () {
-          var el = document.querySelector("#player");
-          el.setAttribute("animation-mixer", {
-            clip: 'Walk',
-            // loop: 'once',
-            timeScale: 0.1,
-            startAt: 100,
-          });
-          
-        });
-      }
-    });
-    AFRAME.registerComponent('animationstate1-1', {
-      schema: {
-        default: ''
-      },
-      init: function () {
-        this.el.addEventListener('click', function () {
-          var el = document.querySelector("#player");
-          el.setAttribute("animation-mixer", {
-            clip: 'Walk',
-            // loop: 'once',
-            timeScale: 0.0,
-            startAt: 100,
-          });
-          
-        });
-      }
-    });
-
-    AFRAME.registerComponent('animationstate2', {
-      schema: {
-        default: ''
-      },
-      init: function () {
-        this.el.addEventListener('click', function () {
-          console.log("Here!");
-          var el = document.querySelector("#player");
-          el.setAttribute("animation-mixer", {
-            clip: 'High_Kick',
-            // loop: 'once',
-            timeScale: 0.1,
-            startAt: 100,
-          });
-
-
-        });
-      }
-    });
-
-    AFRAME.registerComponent('animationstate2-2', {
-      schema: {
-        default: ''
-      },
-      init: function () {
-        this.el.addEventListener('click', function () {
-          var el = document.querySelector("#player");
-          let mixer = el.mixer;
-          el.setAttribute("animation-mixer", {
-            clip: 'High_Kick',
-            // loop: 'once',
-            timeScale: 0.0,
-            startAt: 300,
-          });
-        });
-      }
-    });
-
-  </script>
-
-  <div id="content">
-    <h1>Modal Information Test</h1>
-    <p>Here is the information about what this object is and how it is effected by climate change over time!</p>
   </div>
 
-
+  <div class="scene">
     <a-scene cursor="rayOrigin:mouse">
-
       <a-assets>
         <a-asset-item id="person" src="assets/third_person_animations/scene.gltf"></a-asset-item>
         <a-asset-item id="trex" src="assets/TRex.glb"></a-asset-item>
       </a-assets>
 
-      <a-entity id="trex" position="1 0 -5" gltf-model="#trex" scale="0.15 0.15 0.15" animation-mixer="clip: Armature|TRex_Death; timeScale: .1; startAt: 10000;"></a-entity>
+      <!-- High_Kick Animation is 410 Milliseconds -->
+      <a-entity id="person" position="0 0 -5" gltf-model="#person" scale="1 1 1" 
+                animation-mixer="clip: High_Kick; loop: false; timeScale: 0.1; startAt: 2000;"></a-entity>
 
       <!-- <a-entity id="player" position="0 0 -5" gltf-model="#person" animation-mixer="clip: High_Kick; timeScale: 0.1; startAt: 1000"></a-entity> -->
       <a-box animationstate1 position="-1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
@@ -153,6 +65,13 @@
       <a-sky color="#176EAC"></a-sky>
 
     </a-scene>
+
+
+    <script src="/javascript/timeline.js"></script>
+
+    
+  </div>
+
   </body>
 
 </html>
