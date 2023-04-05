@@ -1,43 +1,51 @@
-var slider = document.getElementById("myRange");
+var slider = document.getElementById("timelineTime");
 
 
-const timelineAssets = ["#person"];
+const timelineAssets = ["#player"];
 var numAssets = 1;
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-    updateTimeline();
-}
-
-// document.addEventListener('DOMContentLoaded', () => {
-
-//     slider.addEventListener('change', updateTimeline);
   
-//     updateTimeline()
-//   })
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+      updateTimeline();
+  }
 
+  // Stops the animation from playing after you release slider
+  slider.onchange = function() {
+    releaseTimeline();
+  }
+  
 
-function updateTimeline() {
-
-    let data = {timeScale: 0.1,
-        startAt: slider.value}
+  function updateTimeline() {
     // Changing the StartAt Value
     for (let i = 0; i < numAssets; i++) {
-        var el = document.querySelector("#person");
-        el.setAttribute("animation-mixer", data);
-    }
-    console.log(data);
+        var el = document.querySelector("#player");
+
+        el.setAttribute("animation-mixer", {
+            clip: "High_Kick",
+            startAt: slider.value,
+        });
+
+        el.setAttribute("animation-mixer", {
+            clip: "Idle",
+        });
 
 
-    
-    // Setting the Animation to Static
-    // for (let i = 0; i < numAssets; i++) {
-    //     var el = document.querySelector("#person");
-    //     el.setAttribute("animation-mixer", {
-    //       timeScale: 0.1,
-    //     });
-    // }
-}
+        el.setAttribute("animation-mixer", {
+            clip: "High_Kick",
+            timeScale: 0.0001,
+        });
+        
+      }
+  }
+
+  function releaseTimeline() {
+        for (let i = 0; i < numAssets; i++) {
+          var el = document.querySelector("#player");
+          el.setAttribute("animation-mixer", {
+            timeScale: 0,
+          });
+      }
+  }
 
 
 

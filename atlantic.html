@@ -29,7 +29,7 @@
   <div class="HUD">
 
     <div class="slidecontainer">
-      <input type="range" min="0" max="4100" value="0" class="slider" id="myRange">
+      <input type="range" min="0" max="4100000" value="0" class="slider" id="timelineTime">
     </div>
 
   </div>
@@ -42,14 +42,14 @@
       </a-assets>
 
       <!-- High_Kick Animation is 410 Milliseconds -->
-      <a-entity id="person" position="0 0 -5" gltf-model="#person" scale="1 1 1" 
-                animation-mixer="clip: High_Kick; loop: false; timeScale: 0.1; startAt: 2000;"></a-entity>
+      <a-entity id="player" position="0 0 -5" gltf-model="#person" scale="1 1 1" 
+                animation-mixer="clip: High_Kick; timeScale: 0; startAt: 0;"></a-entity>
 
       <!-- <a-entity id="player" position="0 0 -5" gltf-model="#person" animation-mixer="clip: High_Kick; timeScale: 0.1; startAt: 1000"></a-entity> -->
-      <a-box animationstate1 position="-1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
+      <!-- <a-box animationstate1 position="-1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
       <a-box animationstate2 position="1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
       <a-box animationstate1-1 position="-2 1 -5" rotation="" color="#fFF2" geometry="" scale="0.2 0.3 0.2"></a-box>
-      <a-box animationstate2-2 position="2 1 -5" rotation="" color="#fFF2" geometry="" scale="0.2 0.3 0.2"></a-box>
+      <a-box animationstate2-2 position="2 1 -5" rotation="" color="#fFF2" geometry="" scale="0.2 0.3 0.2"></a-box> -->
 
       <!-- Interaction 2 -->
       <a-text id="sampletext" value="Here is some info using an A-Frame component" scale="2 2 1" position="-9 3 -5" visible="false"></a-text>
