@@ -7,6 +7,7 @@ var numAssets = 1;
   // Update the current slider value (each time you drag the slider handle)
   slider.oninput = function() {
       updateTimeline();
+      console.log("Here!");
   }
 
   // Stops the animation from playing after you release slider
