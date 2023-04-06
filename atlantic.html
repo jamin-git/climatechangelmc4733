@@ -9,18 +9,11 @@
 
     <!-- Using this Version of A-Frame-Extras - Cloned from their repo
     For some reason, the startAt functionality did not work with with most recent CDN -->
-    <script src="a-frame-extras/aframe-extras-master/examples/bundle.js"></script>
+    <script src="/a-frame-extras/aframe-extras-master/examples/bundle.js"></script>
 
 
     <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script>
     <script src="https://unpkg.com/aframe-supercraft-loader@1.1.3/dist/aframe-supercraft-loader.js"></script>
-
-    <!-- Modal Info -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
-/>
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -40,35 +33,69 @@
       <a-assets>
         <a-asset-item id="person" src="assets/third_person_animations/scene.gltf"></a-asset-item>
         <a-asset-item id="trex" src="assets/TRex.glb"></a-asset-item>
+        <a-asset-item id="reef-environment" src="assets/lmc_4733_layout_ideas.gltf"></a-asset-item>
+        <a-asset-item id="reef-environment-color" src="assets/textureRocks.gltf"></a-asset-item>
+
+        <a-asset-item id="reef-red" src="assets/coral-enviornment-red.glb"></a-asset-item>
+        <a-asset-item id="reef-white" src="assets/coral-enviornment-white.glb"></a-asset-item>
+
+        <a-asset-item id="marker-white" src="assets/Location_Marker.glb"></a-asset-item>
       </a-assets>
 
+      
       <!-- High_Kick Animation is 410 Milliseconds -->
-      <a-entity id="player" position="0 0 -5" gltf-model="#person" scale="1 1 1" 
+      <a-entity id="player" position="-11 1.1 -12" gltf-model="#person" scale="1 1 1" 
                 animation-mixer="clip: High_Kick; timeScale: 0; startAt: 0;"></a-entity>
 
-      <!-- <a-entity id="player" position="0 0 -5" gltf-model="#person" animation-mixer="clip: High_Kick; timeScale: 0.1; startAt: 1000"></a-entity> -->
-      <!-- <a-box animationstate1 position="-1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
-      <a-box animationstate2 position="1 1 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2"></a-box>
-      <a-box animationstate1-1 position="-2 1 -5" rotation="" color="#fFF2" geometry="" scale="0.2 0.3 0.2"></a-box>
-      <a-box animationstate2-2 position="2 1 -5" rotation="" color="#fFF2" geometry="" scale="0.2 0.3 0.2"></a-box> -->
+                
 
-      <!-- Interaction 2 -->
-      <a-text id="sampletext" value="Here is some info using an A-Frame component" scale="2 2 1" position="-9 3 -5" visible="false"></a-text>
-      <a-box testboxindicator2 position="-5 2 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2" animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 10000"></a-box>
-      <a-box position="-5 1 -5" rotation="" color="#4CC3D9" geometry="" scale="1 1 1"></a-box>
 
-      <!-- Interaction 1 -->
-      <a-box testboxindicator position="4 2 -5" rotation="" color="#f54242" geometry="" scale="0.2 0.3 0.2" animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 10000"></a-box>
-      <a-box position="4 1 -5" rotation="" color="#4CC3D9" geometry="" scale="1 1 1"></a-box>
+      <!-- Entity Grouping for Coral -->
+      <a-entity coralgroup1 position="0 0 -5" scale="0.5 0.5 0.5">
+        <!-- Marker -->
+        <a-entity marker1 id="marker1" position="-3 5 -1" gltf-model="#marker-white" scale="7 7 7"
+            animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
+        <!-- Text -->
+        <a-text position="-21 3 0" id="marker1text" visible="false" scale="3 3 3" value="Hello! My name is Corey, and I'm a coral reef! I'm alive, just like you, and I live in the ocean. I'm really colorful and beautiful, and I help keep the ocean healthy by providing homes for lots of other animals, like fish and crabs. I'm not just pretty, though! I also have an important job. I help protect the shore from big waves and storms, and I even provide food and medicine for people!">
+            </a-text>
+        <!-- White Coral Model -->
+        <a-entity id="reef-white" position="0 0 0" gltf-model="#reef-white" scale="1 1 1"
+            model-opacity="1"></a-entity>
+        <!-- Red Coral Model -->
+        <a-entity id="coral-red" position="0 0 0" gltf-model="#reef-red" scale="1 1 1"
+            model-opacity="1"></a-entity>
+      </a-entity>
 
-      <a-box position="0 -1.1 -3" material="color: #271a11" geometry="" scale="50 1 50"></a-box>
-      <a-ocean color="#0C374F" width="150" depth="150" density="15" speed="0.1" position="0 -1 -25"></a-ocean>
+      <!-- Entity Grouping for Coral -->
+      <a-entity coralgroup2 position="16 0 -5" scale="0.5 0.5 0.5">
+        <!-- Marker -->
+        <a-entity marker2 id="marker2" position="-3 5 -1" gltf-model="#marker-white" scale="7 7 7"
+            animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
+        <!-- Text -->
+        <a-text position="2 3 0" id="marker2text" visible="false" scale="3 3 3" value="When the water gets too warm or too dirty, the tiny plants that live inside me (called algae) can die. When that happens, I turn white and get sick.">
+            </a-text>
+        <!-- White Coral Model -->
+        <a-entity id="reef-white-2" position="0 0 0" gltf-model="#reef-white" scale="1 1 1"
+            model-opacity="1"></a-entity>
+        <!-- Red Coral Model -->
+        <a-entity id="coral-red-2" position="0 0 0" gltf-model="#reef-red" scale="1 1 1"
+            model-opacity="1"></a-entity>
+      </a-entity>
+      
+      <a-entity id="reef" position="6.78 1 -6" gltf-model="#reef-environment-color" scale="1 1 1" ></a-entity>
+      <a-entity id="reef2" position="-5.3 0.7 5.2" gltf-model="assets/textureRocks.gltf" scale="" rotation="0 45 0"></a-entity>
+      <a-entity id="reef3" position="16 -0.15 13.2" gltf-model="assets/textureRocks.gltf" scale="" rotation="0 45 0"></a-entity>
+
+      <a-ocean color="#CCB798" width="150" depth="150" density="15" speed="0.1" position="0 -0.6s 0"></a-ocean>
+      <a-box position="0 -1 0" material="color: #CCB798" geometry="" scale="150 1 150"></a-box>
+      <a-ocean color="#0C374F" width="150" depth="150" density="15" speed="0.1" position="0 5 -25" rotation="90 0 0"></a-ocean>
       <a-sky color="#176EAC"></a-sky>
 
     </a-scene>
 
 
     <script src="timeline.js"></script>
+    <script src="click.js"></script>
 
     
   </div>
