@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/aframe-orbit-controls@1.3.0/dist/aframe-orbit-controls.min.js"></script>
     <script src="https://unpkg.com/aframe-supercraft-loader@1.1.3/dist/aframe-supercraft-loader.js"></script>
 
+    <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
+
 </head>
 
 <body>
@@ -66,12 +68,17 @@
         <!-- Asset management system. -->
       <a-assets>
         <img id="earthDay" src="resources/textures/2k_earth_daymap.jpg">
+        <img id="sky" src="resources/starBox2.jpg">
+        
+
+        <a-asset-item id="map-pointer" src="assets/mapPointer/scene.gltf"></a-asset-item>
       </a-assets>
 
-    </a-sphere>
       <a-entity text="value: Explore Climate Change; align: center" scale="3 3 1" rotation="" position="-2 0.3 2" side="double"></a-entity>
 
       <a-entity animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 200000">
+
+        
         <a-sphere
           unitedstates
           id="unitedstates"
@@ -111,7 +118,7 @@
         </a-sphere>
       </a-entity>
 
-      <a-sky color="#4a5459"></a-sky>
+      <a-sky src="#sky"></a-sky>
 
       <a-entity camera 
       look-controls 

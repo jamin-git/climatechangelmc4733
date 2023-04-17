@@ -2,7 +2,7 @@
 
 
 /* HUD will go on top of the Scene container */
-.HUD {
+.slider-container {
 
     /* Positioning */
     position: fixed;
@@ -14,6 +14,45 @@
     /* Centering the Slider */
     left: 50%;
     transform: translate(-50%, 0);
+}
+
+.slider-container-temperature {
+
+  /* Positioning */
+  position: fixed;
+  z-index: 1;
+  padding-top: 10%;
+
+  /* Centering the Slider */
+  left: 90%;
+  transform: translate(100%, 0);
+}
+
+.info-container {
+  
+    /* Positioning */
+    position: fixed;
+    z-index: 1;
+    width: 80vw;
+    height: 3vh;
+    padding-top: 0.6%;
+
+    /* Centering the Slider */
+    left: 100%;
+    transform: translate(-100%, 0);
+}
+
+.info-image {
+  position: absolute;
+  top: 20%;
+  right: 1.5%;
+  width: 2%;
+  height: auto;
+}
+
+.info-image:hover {
+  cursor: pointer;
+  opacity: 90%;
 }
 
 /* Container for the A-Frame Scene */
@@ -59,3 +98,37 @@
     background: #04AA6D;
     cursor: pointer;
   }
+
+
+  /* Slider Temperature Styles */
+
+.slider-temp {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  width: 15px;
+  height: 250px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider-temp::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #06a7c7;
+  cursor: pointer;
+}
+
+.slider-temp::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #06a7c7;
+  cursor: pointer;
+}
