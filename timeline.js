@@ -10,6 +10,7 @@ var numAssets = 1;
 
       updateCoral();
 
+      updateTemp();
   }
 
   // Stops the animation from playing after you release slider
@@ -84,3 +85,41 @@ AFRAME.registerComponent('model-opacity', {
     });
   }
 });
+
+
+// Function Handles changing the Temperature
+function updateTemp() {
+  var temp = document.querySelector("#tempText");
+  var desc = document.querySelector("#tempDesc");
+  var month = document.querySelector("#tempMonth");
+
+
+  // Changing Text Description
+  if (slider.value < 1366666) {
+    desc.innerHTML = "Safe Temp";
+  } else if (slider.value > 1366666 && slider.value < (2 * 1366666)) {
+    desc.innerHTML = "Ok Temp";
+  } else {
+    desc.innerHTML = "Dangerous Temp";
+  }
+
+  // Changing Temp Color
+  var r = 157 + 78 * slider.value / 4100000;
+  var g = 187 - 88 * slider.value / 4100000;
+  var b = 237 - 138 * slider.value / 4100000;
+  temp.style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+  desc.style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+  month.style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+
+
+
+  // setting new temperature value
+  var string = temp.innerHTML;
+  var num = 24.1;
+  var symbol = string.substring(4,6);
+  
+  var numRounded = (num + (slider.value * 1.8 / 4100000)).toFixed(1);
+  var ret = numRounded + symbol;
+
+  temp.innerHTML = ret;
+}

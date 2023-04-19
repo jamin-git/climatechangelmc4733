@@ -11,6 +11,10 @@
 
     <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
 
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="/aframe-star-system-component-master/index.js"></script>
+
 </head>
 
 <body>
@@ -62,22 +66,33 @@
     });
   </script>
 
+    <div class="index-front">
+      <h1 class="text-home">Explore<br>&#160&#160Climate Change</h1>
 
+      <h1 class="text-under">Click a location on the globe to learn more!</h1>
+    </div>
 
-    <a-scene cursor="rayOrigin:mouse">
+    <div class="scene">
+      <a-scene cursor="rayOrigin:mouse">
         <!-- Asset management system. -->
       <a-assets>
-        <img id="earthDay" src="resources/textures/2k_earth_daymap.jpg">
+        <img id="earthDay" src="resources/textures/earth_8k.jpg">
         <img id="sky" src="resources/starBox2.jpg">
         
 
-        <a-asset-item id="map-pointer" src="assets/mapPointer/scene.gltf"></a-asset-item>
+        <a-asset-item id="map-pointer" src="assets/pin.glb"></a-asset-item>
+        <a-asset-item id="earth" src="assets/earth2/scene.gltf"></a-asset-item>
       </a-assets>
 
-      <a-entity text="value: Explore Climate Change; align: center" scale="3 3 1" rotation="" position="-2 0.3 2" side="double"></a-entity>
+      <!-- <a-entity text="value: Explore Climate Change; align: center" scale="3 3 1" rotation="" position="-2 0.3 2" side="double"></a-entity> -->
 
       <a-entity animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 200000">
 
+        <!-- <a-entity unitedstates
+                  id="unitedstates" 
+                  gltf-model="#map-pointer"
+                  position="-0.70125 0.44582 1.9076">
+                </a-entity> -->
         
         <a-sphere
           unitedstates
@@ -116,16 +131,28 @@
             radius="2"
             rotation="30 0 0">
         </a-sphere>
+        <!-- <a-entity 
+                  id="earth" 
+                  gltf-model="#earth"
+                  position="0 0 0"
+                  scale="1 1 1">
+                </a-entity> -->
+
       </a-entity>
 
-      <a-sky src="#sky"></a-sky>
+      <!-- <a-sky src="#sky"></a-sky> -->
+      <a-sky color="black"></a-sky>
+      <a-entity star-system></a-entity>
 
+      
+      <a-entity light="type: ambient; color: #FFF"></a-entity>
       <a-entity camera 
       look-controls 
       orbit-controls="target: 0 0 0; minDistance: 5; maxDistance: 90; initialPosition: -1.1 0 3.1;">
     </a-entity>
 
     </a-scene>
+    </div>
   </body>
 
 </html>
