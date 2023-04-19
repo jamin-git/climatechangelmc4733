@@ -6,7 +6,7 @@ var numAssets = 1;
   
   // Update the current slider value (each time you drag the slider handle)
   slider.oninput = function() {
-      updateTimeline();
+      // updateTimeline();
 
       updateCoral();
 
@@ -56,11 +56,17 @@ var numAssets = 1;
 
     var el2 = document.querySelector("#coral-red-2");
 
+    var cg1 = document.querySelector("#cg1color");
+    var cg1white = document.querySelector("#cg1white");
+
     var num = (slider.value / 4100000);
 
     el1.setAttribute("model-opacity", 1 - num);
 
     el2.setAttribute("model-opacity", 1 - num);
+
+
+    cg1.setAttribute("model-opacity", 1 - num);
 
   }
 
@@ -115,7 +121,7 @@ function updateTemp() {
 
   // setting new temperature value
   var string = temp.innerHTML;
-  var num = 24.1;
+  var num = 27.3;
   var symbol = string.substring(4,6);
   
   var numRounded = (num + (slider.value * 1.8 / 4100000)).toFixed(1);

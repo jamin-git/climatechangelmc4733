@@ -27,7 +27,7 @@ AFRAME.registerComponent('marker1', {
     },
     init: function () {
       this.el.addEventListener('click', function () {
-        var x = document.getElementById("marker1text");
+        var x = document.getElementById("coral1text");
 
         if (x.getAttribute("visible") == true) {
             x.setAttribute("visible", false);
@@ -45,7 +45,7 @@ AFRAME.registerComponent('marker1', {
     },
     init: function () {
       this.el.addEventListener('click', function () {
-        var x = document.getElementById("coral2");
+        var x = document.getElementById("coral2text");
 
         if (x.getAttribute("visible") == true) {
             x.setAttribute("visible", false);

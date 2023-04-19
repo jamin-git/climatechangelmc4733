@@ -81,50 +81,24 @@
         
 
         <a-asset-item id="map-pointer" src="assets/pin.glb"></a-asset-item>
-        <a-asset-item id="earth" src="assets/earth2/scene.gltf"></a-asset-item>
       </a-assets>
 
       <!-- <a-entity text="value: Explore Climate Change; align: center" scale="3 3 1" rotation="" position="-2 0.3 2" side="double"></a-entity> -->
 
       <a-entity animation="property: rotation; to: 0 360 0; easing: linear; loop: true; dur: 200000">
 
-        <!-- <a-entity unitedstates
-                  id="unitedstates" 
-                  gltf-model="#map-pointer"
-                  position="-0.70125 0.44582 1.9076">
-                </a-entity> -->
-        
-        <a-sphere
-          unitedstates
-          id="unitedstates"
-          position="-0.70125 0.44582 1.9076"
-          radius=".05"
-          color="#ff3333">
-        </a-sphere>
+        <a-entity unitedstates id="unitedstates" gltf-model="assets/pin.glb" position="-0.69513 0.4622 1.90236" scale="4 4 4" rotation="15.300264961173504 163.94958124550456 3.1999692858056474">
+        </a-entity>
 
-        <a-sphere
-          asia
-          id="asia"
-          position="-0.45436 1.60241 -1.14687"
-          radius=".05"
-          color="#ff3333">
-        </a-sphere>
+        <a-entity atlantic id="atlantic" gltf-model="assets/pin.glb" position="0.0702 -0.03236 2.08595" scale="4 4 4" rotation="-0.3878924273035673 178.23571090929647 5.8223971141194255">
+        </a-entity>
 
-        <a-sphere
-          australia
-          id="australia"
-          position="-0.89228 -0.12368 -1.85201"
-          radius=".05"
-          color="#ff3333">
-        </a-sphere>
+        <a-entity asia id="asia" gltf-model="assets/pin.glb" position="-0.42094 1.65878 -1.15637" scale="4 4 4" rotation="52.34084050079096 16.01989995185782 172.32221350575125">
+        </a-entity>
 
-        <a-sphere
-          atlantic
-          id="atlantic"
-          position="0.24124 -0.10845 2.01127"
-          radius=".05"
-          color="#ff3333">
-        </a-sphere>
+        <a-entity australia id="australia"gltf-model="assets/pin.glb" position="-1.67216 0.05369 -1.23131" scale="4 4 4" rotation="7.615182055083771 55.45658499071238 -140.56488179503512">
+        </a-entity>
+
 
         <a-sphere id="earth" src="#earthDay"  
             position="0 0 0" 
