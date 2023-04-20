@@ -10,6 +10,7 @@ var numAssets = 1;
 
       updateCoral();
       updateText();
+      updateWildLife();
 
       updateTemp();
   }
@@ -71,6 +72,112 @@ var numAssets = 1;
 
     envC.setAttribute("model-opacity", 1 - num);
 
+
+
+  }
+
+  function updateWildLife() {
+    var num = (slider.value / 4100000);
+
+
+    var fe1 = document.querySelector("#fishe1");
+    var fe2 = document.querySelector("#fishe2");
+    var fe3 = document.querySelector("#fishe3");
+
+    var fani1 = document.querySelector("#fishenvironment1");
+    var fani2 = document.querySelector("#fishenvironment2");
+
+    var s1 = document.querySelector("#seaweed1");
+    var s2 = document.querySelector("#seaweed2");
+    var s3 = document.querySelector("#seaweed3");
+    var s4 = document.querySelector("#seaweed4");
+
+    var c1 = document.querySelector("#clown1");
+    var c2 = document.querySelector("#clown2");
+    var c3 = document.querySelector("#clown3");
+
+    // var starfish = document.querySelector("#starfish");
+
+    if (slider.value < 500000) {
+      fe1.setAttribute("visible", true);
+      fe2.setAttribute("visible", true);
+      fe3.setAttribute("visible", true);
+
+      fani1.setAttribute("visible", true);
+      fani2.setAttribute("visible", true);
+
+      s1.setAttribute("visible", true);
+      s2.setAttribute("visible", true);
+      s3.setAttribute("visible", true);
+      s4.setAttribute("visible", true);
+
+      c1.setAttribute("visible", true);
+      c2.setAttribute("visible", true);
+      c3.setAttribute("visible", true);
+
+      // starfish.setAttribute("gltf-model", "#starfish3");
+
+    } else if (slider.value > 500000 && slider.value < 1000000) {
+
+      fe1.setAttribute("visible", true);
+      fe2.setAttribute("visible", true);
+      fe3.setAttribute("visible", false);
+
+      fani1.setAttribute("visible", true);
+      fani2.setAttribute("visible", true);
+
+      s1.setAttribute("visible", false);
+      s2.setAttribute("visible", true);
+      s3.setAttribute("visible", true);
+      s4.setAttribute("visible", true);
+
+      c1.setAttribute("visible", false);
+      c2.setAttribute("visible", true);
+      c3.setAttribute("visible", true);
+
+      // starfish.setAttribute("gltf-model", "#starfish2");
+
+    } else if (slider.value > 1000000 && slider.value < (2 * 1600000)) {
+
+      fe1.setAttribute("visible", true);
+      fe2.setAttribute("visible", false);
+      fe3.setAttribute("visible", false);
+
+      fani1.setAttribute("visible", false);
+      fani2.setAttribute("visible", true);
+
+      
+      s1.setAttribute("visible", false);
+      s2.setAttribute("visible", false);
+      s3.setAttribute("visible", true);
+      s4.setAttribute("visible", true);
+
+      c1.setAttribute("visible", false);
+      c2.setAttribute("visible", false);
+      c3.setAttribute("visible", true);
+
+      // starfish.setAttribute("gltf-model", "#starfish1");
+
+    } else {
+
+      fe1.setAttribute("visible", false);
+      fe2.setAttribute("visible", false);
+      fe3.setAttribute("visible", false);
+
+      fani1.setAttribute("visible", false);
+      fani2.setAttribute("visible", false);
+
+      s1.setAttribute("visible", false);
+      s2.setAttribute("visible", false);
+      s3.setAttribute("visible", false);
+      s4.setAttribute("visible", false);
+
+      c1.setAttribute("visible", false);
+      c2.setAttribute("visible", false);
+      c3.setAttribute("visible", false);
+
+      // starfish.setAttribute("gltf-model", "");
+    }
 
 
   }

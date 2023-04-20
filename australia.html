@@ -27,18 +27,18 @@
     <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
 
 
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-borderless" rel="stylesheet">
 
-
-    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
 
 
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
+  <iframe src="resources/underwater.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+  </iframe> 
   <div class="HUD">
 
     <div class="slider-container">
@@ -63,7 +63,7 @@
   </div>
 
   <div class="scene">
-    <a-scene cursor="rayOrigin:mouse" renderer="colorManagement: true;">
+    <a-scene cursor="rayOrigin:mouse" renderer="colorManagement: true;" inspector-plugin-recast>
       <a-assets>
 
 
@@ -79,12 +79,15 @@
         <a-asset-item id="single2-normal" src="assets/models/singlepurplecoral.gltf"></a-asset-item>
         <a-asset-item id="single2-bleached" src="assets/models/singlePurpleBleached.gltf"></a-asset-item>
 
+        <a-asset-item id="single3-normal" src="assets/models/singleredcoral2.gltf"></a-asset-item>
+        <a-asset-item id="single3-bleached" src="assets/models/singlebleachedcoral2.gltf"></a-asset-item>
+
 
 
         <a-asset-item id="color-environment" src="assets/models/normalwithborder.gltf"></a-asset-item>
         <a-asset-item id="bleached-environment" src="assets/models/bleachedwithborder.gltf"></a-asset-item>
 
-        <a-asset-item id="bluefish-ani" src="assets/models/bluefish.gltf"></a-asset-item>
+        <a-asset-item id="bluefish" src="assets/models/bluefish.gltf"></a-asset-item>
         <a-asset-item id="butterflyfish" src="assets/models/butterflyfish.gltf"></a-asset-item>
         <a-asset-item id="stripefish" src="assets/models/stripefish.gltf"></a-asset-item>
 
@@ -95,6 +98,9 @@
 
 
         <a-asset-item id="starfish4" src="assets/models/blue_linckia_starfish.glb"></a-asset-item>
+
+        <a-asset-item id="seaweed" src="assets/models/sea_weed.glb"></a-asset-item>
+        <a-asset-item id="clownfish" src="assets/models/clown_fish.glb"></a-asset-item>
 
 
         
@@ -172,10 +178,10 @@
 
     </a-entity>
     <!-- White Coral Model -->
-    <a-entity id="reef-white-2" position="0 0 0" gltf-model="#single-bleached" scale="1 1 1"
+    <a-entity id="reef-white-2" position="0 0 0" gltf-model="#single3-bleached" scale="2 2 2"
         model-opacity="1"></a-entity>
     <!-- Red Coral Model -->
-    <a-entity id="coral-red-2" position="0 0 0" gltf-model="#single-normal" scale="1 1 1"
+    <a-entity id="coral-red-2" position="0 0 0" gltf-model="#single3-normal" scale="2 2 2"
         model-opacity="1"></a-entity>
   </a-entity>
 
@@ -236,20 +242,20 @@
   
       </a-entity>
 
-      <a-entity id="starfish" position="0 0 0" gltf-model="assets/models/starfish3.gltf" scale=""></a-entity>
+      <a-entity id="starfish" position="0 0 0" gltf-model="#starfish3" scale=""></a-entity>
 
     </a-entity>
 
     <!-- Fish -->
     <a-entity fish2 position="12.7 2.5 -4.7" scale="1 1 1" rotation="0 -50 0">
       <!-- Marker -->
-      <a-entity marker5 id="marker5" position="-1 2 0" gltf-model="#marker-white" scale="7 7 7"
+      <a-entity marker5 id="marker5" position="-1.95 0.57 1.8" gltf-model="#marker-white" scale="7 7 7"
           animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
   
   
       <!-- Text -->
       <!-- Using -4 here to center it... It is half the width -->
-      <a-entity position="-5.5 4.6 3.5" id="fish2text" visible="false" look-at="[camera]">
+      <a-entity position="5.6 1.7 6.8" id="fish2text" visible="false" look-at="[camera]">
   
         <a-text position="-4 1.25 0" id="f2title" width="8" height="1" font="aileronsemibold"
           value="Past Wildlife #1">
@@ -265,12 +271,37 @@
   
       </a-entity>
 
-      <a-entity id="fish" position="0 0 0" gltf-model="#stripefish" scale="" model-opacity="1"></a-entity>
+      <a-entity id="fishe1" position="-3.4 -0.6 -.37" gltf-model="#stripefish" scale="" model-opacity="1" visible="true"
+            animation="property: position; to: 0 0 0; loop: true; dur: 10000; dir: alternate; easing: easeInOutSine;"></a-entity>
+
+            <a-entity id="fishe2" position="-4 0 0" gltf-model="#stripefish" scale="" model-opacity="1" visible="true"
+            animation="property: position; to: -.6 .6 0; loop: true; dur: 9500; dir: alternate; easing: easeInOutSine;"></a-entity>
+
+            <a-entity id="fishe3" position="-5 1 0" gltf-model="#stripefish" scale="" model-opacity="1" visible="true"
+            animation="property: position; to: -1.6 1.8 0; loop: true; dur: 9000; dir: alternate; easing: easeInOutSine;"></a-entity>
 
     </a-entity>
 
 
+  <a-entity id="fishenvironment1" position="-12 8.8 13" gltf-model="#stripefish" scale="" model-opacity="1" visible="true"
+            animation="property: position; to: 19 8.8 -8; loop: true; dur: 15000; dir: alternate; easing: easeInOutSine;"></a-entity>
 
+  <a-entity id="fishenvironment2" position="-47.15812 1.70666 -71.30354" gltf-model="assets/models/bluefish.gltf" scale="4 4 4" model-opacity="" visible="" 
+      animation="property: position; to: 6.77 1.7 -30; loop: true; dur: 20000; dir: alternate; easing: easeInOutSine" rotation="0 -57.43443529950399 0"></a-entity>
+
+  <a-entity id="seaweed1" position="-11.82047 -0.51186 -13.3573" gltf-model="assets/models/sea_weed.glb" scale="" model-opacity="" visible="" animation-mixer=""></a-entity>
+
+  <a-entity id="seaweed2" position="0.35069 -0.512 -20.00206" gltf-model="assets/models/sea_weed.glb" scale="" model-opacity="" visible="" animation-mixer=""></a-entity>
+
+  <a-entity id="seaweed3" position="13.00238 -0.512 4.53016" gltf-model="assets/models/sea_weed.glb" scale="" model-opacity="" visible="" animation-mixer=""></a-entity>
+
+  <a-entity id="seaweed4" position="0.47843 -0.512 18.05488" gltf-model="assets/models/sea_weed.glb" scale="" model-opacity="" visible="" animation-mixer=""></a-entity>
+
+  <a-entity id="clown1" position="-8.83115 3.4822 -24.04708" gltf-model="assets/models/clown_fish.glb" scale="0.01 0.01 0.01" animation-mixer="" rotation="0 48.95867063613371 0"></a-entity>
+
+  <a-entity id="clown2" position="19.98163 3.9874 -14.59087" gltf-model="assets/models/clown_fish.glb" scale="0.01 0.01 0.01" animation-mixer=""></a-entity>
+
+  <a-entity id="clown3" position="-2.7654 4.02934 3.21744" gltf-model="assets/models/clown_fish.glb" scale="0.01 0.01 0.01" animation-mixer=""></a-entity>
   <!-- Full Environment -->
   <a-entity>
     <a-entity id="bleachEnvironment" position="0 0 0" gltf-model="#bleached-environment" scale="1 1 1" modedl-opacity="1"></a-entity>
@@ -290,11 +321,6 @@
 
 
   <a-entity camera position="-15.89307 1.6 -0.20637" wasd-controls rotation="1 -45 0" look-controls></a-entity>
-
-
-  <a-entity id="fish" position="-9.05684 0.48832 -11.35967" gltf-model="assets/models/bluefish-ani.gltf" scale="" modedl-opacity="1"
-            animation-mixer="timeScale: 1; startAt: 0;"></a-entity>
-
 
 
   </a-scene>

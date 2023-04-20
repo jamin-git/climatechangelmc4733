@@ -1,20 +1,20 @@
 // This will Pop Up the Instructions Pages
 
-// document.addEventListener("DOMContentLoaded", function() {
-//   Swal.fire({
-//     imageUrl: 'resources/directions/pagecombined.png',
-//     imageAlt: 'Welcome Image',
-//     width: "100%",
-//     backdrop: "rgba(1, 1, 1, .99)"
-//   });
-// });
+document.addEventListener("DOMContentLoaded", function() {
+  Swal.fire({
+    imageUrl: 'resources/directions/instructions2.png',
+    imageAlt: 'Welcome Image',
+    width: "100%",
+    backdrop: "rgba(1, 1, 1, .9)"
+  });
+});
 
 function showDirections() {
   Swal.fire({
-    imageUrl: 'resources/directions/pagecombined.png',
+    imageUrl: 'resources/directions/instructions2.png',
     imageAlt: 'Welcome Image',
     width: "100%",
-    backdrop: "rgba(1, 1, 1, .99)"
+    backdrop: "rgba(1, 1, 1, .9)"
   });
 }
 
