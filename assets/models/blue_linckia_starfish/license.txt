@@ -1,0 +1,11 @@
+Model Information:
+* title:	Blue Linckia Starfish
+* source:	https://sketchfab.com/3d-models/blue-linckia-starfish-d3b89a368c424b16a14e077bad54df17
+* author:	Jess.Fittock (https://sketchfab.com/Jess.Fittock)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Blue Linckia Starfish" (https://sketchfab.com/3d-models/blue-linckia-starfish-d3b89a368c424b16a14e077bad54df17) by Jess.Fittock (https://sketchfab.com/Jess.Fittock) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

@@ -102,6 +102,11 @@ var numAssets = 1;
       c3title.setAttribute("value", "Past Coral #3");
       c3desc.setAttribute("value", "I'm not just pretty, though! I also have an important job. I help protect the shore from big waves and storms, and I even provide food and medicine for people!");
       
+      f1title.setAttribute("value", "Past Wildlife #1");
+      f1desc.setAttribute("value", "The temperature of the water was more consistent and predictable, which made it easier for me and other animals to find the right habitats and food sources.");
+
+      f2title.setAttribute("value", "Past Wildlife #2");
+      f2desc.setAttribute("value", "Hi! I’m a fish. I live in the coral reefs, which are vibrant and healthy, teeming with life and color! Everyday, I swim in schools with my friends, darting around the coral and playing hide-and-seek in the seaweed .It is a world of wonder & adventure!");
 
     } else if (slider.value > 1366666 && slider.value < (2 * 1366666)) {
       c1title.setAttribute("value", "Present Coral #1");
@@ -113,6 +118,12 @@ var numAssets = 1;
       c3title.setAttribute("value", "Present Coral #3");
       c3desc.setAttribute("value", "The heating of water temperature causes the water acidity to increase, making it more difficult for me to build my hard structure. This is causing my coral polyps to struggle, which in turn is impacting the entire ecosystem that relies on me for shelter and food.");
 
+      f1title.setAttribute("value", "Present Wildlife #1");
+      f1desc.setAttribute("value", "Because the ocean has gotten hotter, some of us have had to swim to different parts of the ocean to find cooler water. Some of us can't do that, and that means we have to live in water that's too hot for us.");
+
+      f2title.setAttribute("value", "Present Wildlife #2");
+      f2desc.setAttribute("value", "I have seen significant changes in my underwater world as the Earth's climate evolves. The water temperature is getting warmer, and it's affecting my entire ecosystem. As the water temperature rises, some of my fellow fish are struggling to adapt. ");
+
     } else {
       c1title.setAttribute("value", "Future Coral #1");
       c1desc.setAttribute("value", "If climate change & pollution persist, it can make the ocean warm & dirty for my friends & I to live in. If many of us coral reefs are sick, it can hurt the whole ocean ecosystem. The ocean ​​is a big puzzle. If we take away one piece, the whole puzzle can mess up.")
@@ -123,6 +134,11 @@ var numAssets = 1;
       c3title.setAttribute("value", "Future Coral #3");
       c3desc.setAttribute("value", "The rising ocean temperatures & acidity levels have caused massive bleaching events leaving  me pale & lifeless. The coral polyps that once thrived on me have mostly died off, leaving me without the diversity and complexity that once sustained countless marine species.");
 
+      f1title.setAttribute("value", "Future Wildlife #1");
+      f1desc.setAttribute("value", "The ocean has become more acidic, making it more difficult for me and other marine animals to build and maintain our shells, scales, and other important body parts. This has made us more vulnerable to disease and predation.");
+
+      f2title.setAttribute("value", "Future Wildlife #2");
+      f2desc.setAttribute("value", "The once diverse & vibrant ecosystem has become unrecognizable. Many of my fellow fish species are extinct, & those that remain are struggling to survive. The water temperature has dramatically risen, causing more & more marine animals to die off. ");
     }
 
   }

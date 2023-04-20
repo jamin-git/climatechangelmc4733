@@ -84,8 +84,17 @@
         <a-asset-item id="color-environment" src="assets/models/normalwithborder.gltf"></a-asset-item>
         <a-asset-item id="bleached-environment" src="assets/models/bleachedwithborder.gltf"></a-asset-item>
 
-        <a-asset-item id="bluefish" src="assets/models/bluefish.gltf"></a-asset-item>
+        <a-asset-item id="bluefish-ani" src="assets/models/bluefish.gltf"></a-asset-item>
         <a-asset-item id="butterflyfish" src="assets/models/butterflyfish.gltf"></a-asset-item>
+        <a-asset-item id="stripefish" src="assets/models/stripefish.gltf"></a-asset-item>
+
+
+        <a-asset-item id="starfish1" src="assets/models/starfish1.gltf"></a-asset-item>
+        <a-asset-item id="starfish2" src="assets/models/starfish2.gltf"></a-asset-item>
+        <a-asset-item id="starfish3" src="assets/models/starfish3.gltf"></a-asset-item>
+
+
+        <a-asset-item id="starfish4" src="assets/models/blue_linckia_starfish.glb"></a-asset-item>
 
 
         
@@ -121,7 +130,7 @@
         the algae that live inside me can die. When that happens, I turn white and get sick. This is called Coral bleaching.">
       </a-text>
 
-      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="1" radius="0.1">
+      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#13226D" opacity="1" radius="1">
         
       </a-rounded>
 
@@ -157,7 +166,7 @@
         the algae that live inside me can die. When that happens, I turn white and get sick. This is called Coral bleaching.">
       </a-text>
 
-      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="1" radius="0.1">
+      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#13226D" opacity="1" radius="1">
         
       </a-rounded>
 
@@ -189,7 +198,7 @@
         value="As a coral reef, life in the ocean is incredibly diverse and complex. Coral reefs are some of the most biodiverse ecosystems on the planet, teeming with thousands of different species of marine life.">
       </a-text>
 
-      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="1" radius="0.1">
+      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#13226D" opacity="1" radius="1">
         
       </a-rounded>
 
@@ -202,13 +211,71 @@
         model-opacity="1"></a-entity>
   </a-entity>
 
+    <!-- Starfish -->
+    <a-entity fish1 position="-8.3 -.25 -17" scale="1 1 1">
+      <!-- Marker -->
+      <a-entity marker4 id="marker4" position="-1 2 0" gltf-model="#marker-white" scale="7 7 7"
+          animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
+  
+  
+      <!-- Text -->
+      <!-- Using -4 here to center it... It is half the width -->
+      <a-entity position="-5.5 4.6 3.5" id="fish1text" visible="false" look-at="[camera]">
+  
+        <a-text position="-4 1.25 0" id="f1title" width="8" height="1" font="aileronsemibold"
+          value="Past Wildlife #1">
+        </a-text>
+  
+        <a-text position="-4 0 0" id="f1desc" width="8" height="3" font="aileronsemibold"
+          value="The temperature of the water was more consistent and predictable, which made it easier for me and other animals to find the right habitats and food sources.">
+        </a-text>
+  
+        <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#13226D" opacity="1" radius="1">
+          
+        </a-rounded>
+  
+      </a-entity>
+
+      <a-entity id="starfish" position="0 0 0" gltf-model="assets/models/starfish3.gltf" scale=""></a-entity>
+
+    </a-entity>
+
+    <!-- Fish -->
+    <a-entity fish2 position="12.7 2.5 -4.7" scale="1 1 1" rotation="0 -50 0">
+      <!-- Marker -->
+      <a-entity marker5 id="marker5" position="-1 2 0" gltf-model="#marker-white" scale="7 7 7"
+          animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
+  
+  
+      <!-- Text -->
+      <!-- Using -4 here to center it... It is half the width -->
+      <a-entity position="-5.5 4.6 3.5" id="fish2text" visible="false" look-at="[camera]">
+  
+        <a-text position="-4 1.25 0" id="f2title" width="8" height="1" font="aileronsemibold"
+          value="Past Wildlife #1">
+        </a-text>
+  
+        <a-text position="-4 0 0" id="f2desc" width="8" height="3" font="aileronsemibold"
+          value="Hi! I’m a fish. I live in the coral reefs, which are vibrant and healthy, teeming with life and color! Everyday, I swim in schools with my friends, darting around the coral and playing hide-and-seek in the seaweed .It is a world of wonder & adventure!">
+        </a-text>
+  
+        <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#13226D" opacity="1" radius="1">
+          
+        </a-rounded>
+  
+      </a-entity>
+
+      <a-entity id="fish" position="0 0 0" gltf-model="#stripefish" scale="" model-opacity="1"></a-entity>
+
+    </a-entity>
+
+
 
   <!-- Full Environment -->
   <a-entity>
     <a-entity id="bleachEnvironment" position="0 0 0" gltf-model="#bleached-environment" scale="1 1 1" modedl-opacity="1"></a-entity>
     <a-entity id="colorEnvironment" position="0 0 0" gltf-model="#color-environment" scale="1 1 1" model-opacity="1"></a-entity>
   </a-entity>
-
 
   
 
@@ -222,7 +289,11 @@
   <a-sky color="#176EAC"></a-sky>
 
 
-  <a-entity id="fish" position="0 15 -15" gltf-model="assets/models/butterflyfish-2d.gltf" scale="" modedl-opacity="1"></a-entity>
+  <a-entity camera position="-15.89307 1.6 -0.20637" wasd-controls rotation="1 -45 0" look-controls></a-entity>
+
+
+  <a-entity id="fish" position="-9.05684 0.48832 -11.35967" gltf-model="assets/models/bluefish-ani.gltf" scale="" modedl-opacity="1"
+            animation-mixer="timeScale: 1; startAt: 0;"></a-entity>
 
 
 

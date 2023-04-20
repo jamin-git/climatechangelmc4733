@@ -74,3 +74,39 @@ AFRAME.registerComponent('marker1', {
       });
     }
   });
+
+  AFRAME.registerComponent('marker4', {
+    schema: {
+      default: ''
+    },
+    init: function () {
+      this.el.addEventListener('click', function () {
+        var x = document.getElementById("fish1text");
+
+        if (x.getAttribute("visible") == true) {
+            x.setAttribute("visible", false);
+        } else {
+            x.setAttribute("visible", true);
+        }
+
+      });
+    }
+  });
+
+  AFRAME.registerComponent('marker5', {
+    schema: {
+      default: ''
+    },
+    init: function () {
+      this.el.addEventListener('click', function () {
+        var x = document.getElementById("fish2text");
+
+        if (x.getAttribute("visible") == true) {
+            x.setAttribute("visible", false);
+        } else {
+            x.setAttribute("visible", true);
+        }
+
+      });
+    }
+  });
