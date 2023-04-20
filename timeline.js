@@ -301,10 +301,10 @@ function updateTemp() {
 
   // setting new temperature value
   var string = temp.innerHTML;
-  var num = 27.3;
+  var num = 27.1;
   var symbol = string.substring(4,6);
   
-  var numRounded = (num + (slider.value * 1.8 / 4100000)).toFixed(1);
+  var numRounded = (num + (slider.value * 4 / 4100000)).toFixed(1);
   var ret = numRounded + symbol;
 
   temp.innerHTML = ret;
