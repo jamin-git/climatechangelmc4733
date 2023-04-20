@@ -4,7 +4,7 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 
     <!-- Adding the A-Frame Extras Library -->
-    <!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@67d1130/dist/aframe-extras.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@67d1130/dist/aframe-extras.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script> -->
 
     <!-- Using this Version of A-Frame-Extras - Cloned from their repo
@@ -29,6 +29,9 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-borderless" rel="stylesheet">
+
+
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
 
 
     <link rel="stylesheet" href="styles.css">
@@ -60,21 +63,26 @@
   </div>
 
   <div class="scene">
-    <a-scene cursor="rayOrigin:mouse" renderer="colorManagement: true; antialias: off;" inspector="url: https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
+    <a-scene cursor="rayOrigin:mouse" renderer="colorManagement: true;">
       <a-assets>
-
-        <a-asset-item id="reef-red" src="assets/coral-enviornment-red.glb"></a-asset-item>
-        <a-asset-item id="reef-white" src="assets/coral-enviornment-white.glb"></a-asset-item>
 
 
 
         <a-asset-item id="person" src="assets/third_person_animations/scene.gltf"></a-asset-item>
 
-        <a-asset-item id="red-grouping" src="assets/models/Jacob/coralgroup1color.gltf"></a-asset-item>
-        <a-asset-item id="white-grouping" src="assets/models/Jacob/coralgroup1white.gltf"></a-asset-item>
+        <a-asset-item id="group-normal" src="assets/models/colorFillerCoral.glb"></a-asset-item>
+        <a-asset-item id="group-bleached" src="assets/models/whiteFillerCoral.glb"></a-asset-item>
 
-        <a-asset-item id="red-single" src="assets/models/fillercoral_red.gltf"></a-asset-item>
-        <a-asset-item id="white-single" src="assets/models/fillercoral_white.gltf"></a-asset-item>
+        <a-asset-item id="single-normal" src="assets/models/singleredcoral.glb"></a-asset-item>
+        <a-asset-item id="single-bleached" src="assets/models/singleRedBleached.gltf"></a-asset-item>
+
+        <a-asset-item id="single2-normal" src="assets/models/singlepurplecoral.gltf"></a-asset-item>
+        <a-asset-item id="single2-bleached" src="assets/models/singlePurpleBleached.gltf"></a-asset-item>
+
+
+
+        <a-asset-item id="color-environment" src="assets/models/normalwithborder.gltf"></a-asset-item>
+        <a-asset-item id="bleached-environment" src="assets/models/bleachedwithborder.gltf"></a-asset-item>
 
         <a-asset-item id="bluefish" src="assets/models/bluefish.gltf"></a-asset-item>
         <a-asset-item id="butterflyfish" src="assets/models/butterflyfish.gltf"></a-asset-item>
@@ -94,26 +102,26 @@
 
 
   <!-- CI1 -->
-  <a-entity coral1 position="0 0 -5" scale="0.5 0.5 0.5">
+  <a-entity coral1 position="6.2 -.9 -21.3" scale="0.75 0.75 0.75">
 
   <!-- Marker -->
-  <a-entity marker1 id="marker1" position=".5 5.5 2" gltf-model="#marker-white" scale="7 7 7"
+  <a-entity marker1 id="marker1" position=".5 4 2" gltf-model="#marker-white" scale="7 7 7"
         animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear;"></a-entity>
 
     <!-- Text -->
     <!-- Using -4 here to center it... It is half the width -->
     <a-entity position="7 5.5 1" id="coral1text" visible="false" look-at="[camera]">
 
-      <a-text position="-4 1.25 0" width="8" height="1" font="aileronsemibold"
-        value="Title">
+      <a-text position="-4 1.25 0" id="c1title" width="8" height="1" font="aileronsemibold"
+        value="Past Coral #1">
       </a-text>
 
-      <a-text position="-4 0 0" width="8" height="3" font="aileronsemibold"
+      <a-text position="-4 0 0" id="c1desc" width="8" height="3" font="aileronsemibold"
         value="Hi! I’m a Coral Reef. I am a vibrant habitat that provides homes, food, and protection to other animals! When the water gets too warm, 
         the algae that live inside me can die. When that happens, I turn white and get sick. This is called Coral bleaching.">
       </a-text>
 
-      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="0.5" radius="0.1">
+      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="1" radius="0.1">
         
       </a-rounded>
 
@@ -121,95 +129,102 @@
 
 
     <!-- White Coral Model -->
-    <a-entity id="reef-white" position="0 0 0" gltf-model="#white-single" scale="1 1 1"
+    <a-entity id="reef-white" position="0 0 0" gltf-model="#group-bleached" scale="1 1 1"
         model-opacity="1"></a-entity>
     <!-- Red Coral Model -->
-    <a-entity id="coral-red" position="0 0 0" gltf-model="#red-single" scale="1 1 1"
+    <a-entity id="coral-red" position="0 0 0" gltf-model="#group-normal" scale="1 1 1"
         model-opacity="1"></a-entity>
         
   </a-entity>
 
   <!-- CI2 -->
-  <a-entity coral2 position="16 0 -5" scale="0.5 0.5 0.5">
+  <a-entity coral2 position="-6.5 -0.5 20" scale="1 1 1">
     <!-- Marker -->
-    <a-entity marker2 id="marker2" position=".5 5.5 2" gltf-model="#marker-white" scale="7 7 7"
-        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
+    <a-entity marker2 id="#marker2" position="-0.8 4.2 -.2" gltf-model="#marker-white" scale="7 7 7"
+              animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
 
 
     <!-- Text -->
     <!-- Using -4 here to center it... It is half the width -->
-    <a-entity position="7 5.5 1" id="coral2text" visible="false" look-at="[camera]">
+    <a-entity position="-3.91 4.4 -4.8" id="coral2text" visible="false" look-at="[camera]">
 
-      <a-text position="-4 1.25 0" width="8" height="1" font="aileronsemibold"
-        value="Title">
+      <a-text position="-4 1.25 0" id="c2title" width="8" height="1" font="aileronsemibold"
+        value="Past Coral #2">
       </a-text>
 
-      <a-text position="-4 0 0" width="8" height="3" font="aileronsemibold"
+      <a-text position="-4 0 0" id="c2desc" width="8" height="3" font="aileronsemibold"
         value="Hi! I’m a Coral Reef. I am a vibrant habitat that provides homes, food, and protection to other animals! When the water gets too warm, 
         the algae that live inside me can die. When that happens, I turn white and get sick. This is called Coral bleaching.">
       </a-text>
 
-      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="0.5" radius="0.1">
+      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="1" radius="0.1">
         
       </a-rounded>
 
     </a-entity>
     <!-- White Coral Model -->
-    <a-entity id="reef-white-2" position="0 0 0" gltf-model="#white-single" scale="1 1 1"
+    <a-entity id="reef-white-2" position="0 0 0" gltf-model="#single-bleached" scale="1 1 1"
         model-opacity="1"></a-entity>
     <!-- Red Coral Model -->
-    <a-entity id="coral-red-2" position="0 0 0" gltf-model="#red-single" scale="1 1 1"
+    <a-entity id="coral-red-2" position="0 0 0" gltf-model="#single-normal" scale="1 1 1"
         model-opacity="1"></a-entity>
   </a-entity>
 
-  <!-- CG1 -->
-  <a-entity coralgroup1 position="10.5 0 -6.1" scale="">
-    <a-entity id="cg1white" position="0 0 0" gltf-model="#white-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-    <a-entity id="cg1color" position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
+  <!-- CI3 -->
+  <a-entity coral3 position="9.3 -.5 15.8" scale="1 1 1">
+    <!-- Marker -->
+    <a-entity marker3 id="marker3" position="-.9 4 -.9" gltf-model="#marker-white" scale="7 7 7"
+        animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 10000 easing: linear;"></a-entity>
+
+
+    <!-- Text -->
+    <!-- Using -4 here to center it... It is half the width -->
+    <a-entity position="-5.3 4.6 3.3" id="coral3text" visible="false" look-at="[camera]">
+
+      <a-text position="-4 1.25 0" id="c3title" width="8" height="1" font="aileronsemibold"
+        value="Past Coral #3">
+      </a-text>
+
+      <a-text position="-4 0 0" id="c3desc" width="8" height="3" font="aileronsemibold"
+        value="As a coral reef, life in the ocean is incredibly diverse and complex. Coral reefs are some of the most biodiverse ecosystems on the planet, teeming with thousands of different species of marine life.">
+      </a-text>
+
+      <a-rounded position="-4.5 -1.25 0" height="3" width="9" color="#000000" opacity="1" radius="0.1">
+        
+      </a-rounded>
+
+    </a-entity>
+    <!-- White Coral Model -->
+    <a-entity id="reef-white-3" position="0 0 0" gltf-model="#single2-bleached" scale="1 1 1"
+        model-opacity="1"></a-entity>
+    <!-- Red Coral Model -->
+    <a-entity id="coral-red-3" position="0 0 0" gltf-model="#single2-normal" scale="1 1 1"
+        model-opacity="1"></a-entity>
   </a-entity>
 
-  <!-- CG2 -->
-  <a-entity coralgroup2 position="-1.7 0 -17" scale="">
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
+
+  <!-- Full Environment -->
+  <a-entity>
+    <a-entity id="bleachEnvironment" position="0 0 0" gltf-model="#bleached-environment" scale="1 1 1" modedl-opacity="1"></a-entity>
+    <a-entity id="colorEnvironment" position="0 0 0" gltf-model="#color-environment" scale="1 1 1" model-opacity="1"></a-entity>
   </a-entity>
 
-  <!-- CG3 -->
-  <a-entity coralgroup3 position="-13.1 0 -3.6" scale="">
-    <a-entity position="0 0 0" gltf-model="#white-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-  </a-entity>
-
-  <!-- CG4 -->
-  <a-entity coralgroup4 position="-13.9 0.45 7.8" scale="">
-    <a-entity position="0 0 0" gltf-model="#white-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-  </a-entity>
-
-  <!-- CG5 -->
-  <a-entity coralgroup5 position="-1.2 -1.5 16" scale="">
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-  </a-entity>
-
-  <!-- CG6 -->
-  <a-entity coralgroup6 position="14.2 1 10.2" scale="">
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-    <a-entity position="0 0 0" gltf-model="#red-grouping" scale="1 1 1" model-opacity="1"></a-entity>
-  </a-entity>
 
   
 
 
 
-
   <!-- Lighting Info -->
   <a-entity environment="preset: tron; skyColor: #d6f8ff; horizonColor: #75caff"></a-entity>
-  <!-- <a-entity light="type: ambient; color: #ADD8E6" intensity="1"></a-entity> -->
   <a-ocean color="#CCB798" width="150" depth="150" density="15" speed="0.1" position="0 -0.6 0"></a-ocean>
   <a-box position="0 -1 0" material="color: #CCB798" geometry="" scale="150 1 150"></a-box>
-  <a-ocean color="#0C374F" width="150" depth="150" density="15" speed="0.1" position="0 6 -25" rotation="90 0 0"></a-ocean>
+  <a-ocean color="#0C374F" width="150" depth="150" density="15" speed="0.1" position="0 10 -25" rotation="90 0 0"></a-ocean>
   <a-sky color="#176EAC"></a-sky>
+
+
+  <a-entity id="fish" position="0 15 -15" gltf-model="assets/models/butterflyfish-2d.gltf" scale="" modedl-opacity="1"></a-entity>
+
+
 
   </a-scene>
 
