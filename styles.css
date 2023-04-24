@@ -220,3 +220,26 @@
   text-align: left;
   user-select: none;
 }
+
+
+.area-container {
+  width: 100%;
+  height: 100%;
+
+  background-color:azure;
+
+}
+
+.area-text {
+  text-align: center;
+  padding-top: 20%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: black;
+  font-size: 5vw;
+}
+
+.area-image {
+  justify-content: center;
+  padding-top: 5%;
+}
